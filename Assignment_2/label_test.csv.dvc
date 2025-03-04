@@ -1,0 +1,5 @@
+outs:
+- md5: 7e20ebf4c6d5a7e464a645474820b0ed
+  size: 5712
+  hash: md5
+  path: label_test.csv
