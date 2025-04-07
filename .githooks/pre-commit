@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Run this only on the 'main' branch
+branch=$(git symbolic-ref --short HEAD)
+if [ "$branch" != "main" ]; then
+    exit 0
+fi
+
+echo "Running tests before commit..."
+
+# Go into assignment 4
+cd "Assignment 4"
+
+# Execute test.py
+pytest test_score.py
+
+# Capture exit code
+status=$?
+
+if [ $status -ne 0 ]; then
+    echo "Tests failed! Fix the errors before committing."
+    exit 1
+fi
+
+echo "All tests passed. Proceeding with commit."
+exit 0
